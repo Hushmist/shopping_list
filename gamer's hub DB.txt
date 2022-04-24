@@ -18,3 +18,11 @@ users
 	full_name
 	email
 	avatar
+
+likes
+	user_id
+	article_id
+
+comments
+	author_id
+	text

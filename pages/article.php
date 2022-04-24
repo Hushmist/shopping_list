@@ -21,7 +21,7 @@ include("../includes/header.php");
 				<div class="col-9">
 					<div class="article">
 						<?php 
-							$table = mysqli_query($connection, "SELECT * FROM `articles` WHERE `id` = " . (int) $_GET['id'] );
+							$table = mysqli_query($connection, "SELECT a.*, c.title as categorie_title FROM `articles` a INNER JOIN `categories` c ON a.categorie_id = c.id WHERE a.`id` = " . (int) $_GET['id'] );
 							if(!($article = mysqli_fetch_assoc($table))) {
 						?>
 								<h1 class="article_caption">Cтатья не найдена</h1>
@@ -37,16 +37,9 @@ include("../includes/header.php");
 									<div class="article_additionally_data justify-content-center">
 										<p>Категория: 
 											<a class="blog_post_text_categorie_link" href="articles.php?categorie=<?php echo($article['categorie_id']) ?>">
-												<?php
-													for ($i=0; $i < count($article); $i++) { 
-														if($article['categorie_id'] == $categories['id'][$i]) {
-															echo $categories['title'][$i];
-															break;
-														}
-													} 
-												?>
+												<?php echo $article['categorie_title'];?>
 											</a> 
-											</p>
+										</p>
 										<p>
 											Автор: 
 											<?php
@@ -113,7 +106,6 @@ include("../includes/header.php");
 								<div class="article_comments">
 									<h1 class="blog_header">Комментарий</h1>
 									<?php
-										echo "UPDATE `articles` SET `comments` = comments-1 WHERE `id` = '".$article['id']."'";
 										//deleting comment
 										if(check_admission($connection)) {
 											if(isset($_POST['delete_comment'])) {
