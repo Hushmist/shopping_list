@@ -1,0 +1,20 @@
+articles
+	id
+	title
+	text
+	author_id
+	categorie_id
+	image
+	views
+	comments
+categories
+	id
+	title
+
+users
+	id
+	login
+	password
+	full_name
+	email
+	avatar

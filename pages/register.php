@@ -20,11 +20,11 @@ if(isset($_SESSION['user'])) {
 			<div class="login">
 				<form action="signup.php" method="post" enctype="multipart/form-data">
 					<label>ФИО</label>
-					<input type="text" name="full_name" placeholder="Введите Ваше полное имя" value="<?= $_SESSION['user_temp']['full_name']  ?>">
+					<input type="text" name="full_name" placeholder="Введите Ваше полное имя" >
 					<label>Логин</label>
-					<input type="text" name="login" placeholder="Введите Ваш логин" value="<?= $_SESSION['user_temp']['login']  ?>">
+					<input type="text" name="login" placeholder="Введите Ваш логин" >
 					<label>Почта</label>
-					<input type="email" name="email" placeholder="Введите Вашу эл. почту" value="<?= $_SESSION['user_temp']['email']  ?>">
+					<input type="email" name="email" placeholder="Введите Вашу эл. почту" >
 					<label>Изоброжение</label>
 					<input type="file" name="avatar" placeholder="Загрузите Ваш аватар">
 					<label>Пароль</label>
