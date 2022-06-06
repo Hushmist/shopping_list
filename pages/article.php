@@ -147,7 +147,17 @@ include("../includes/header.php");
 													}
 													?>
 													<div class="read_create_article_btn">
-														<div class="row justify-content-end">
+														<div class="row justify-content-evenly">
+															<div class="col-4">
+																<form action="../pages/update_comment.php" method="get">
+																	<div class="btn-group" role="group" aria-label="Basic outlined example">
+																		<button name="id" value="<?php echo $comment['id'] ?>" class="btn btn-outline-dark">
+																			Редактировать
+																		</button>
+																	</div>
+																</form>
+															</div>
+
 															<div class="col-4">
 																<form method="POST">
 																	<div class="btn-group" role="group" aria-label="Basic outlined example">

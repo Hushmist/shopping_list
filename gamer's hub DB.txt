@@ -26,3 +26,35 @@ likes
 comments
 	author_id
 	text
+
+-------------------------------------------------------------------------
+Laravel
+articles 8
+	article_id
+	title
+	text
+	user_id
+	categorie_id
+	image
+	views
+	comments
+	
+categories 2
+	categorie_id
+	title
+
+users 6
+	user_id
+	login
+	password
+	full_name
+	email
+	avatar
+
+likes 2
+	user_id
+	article_id
+
+comments 2
+	user_id
+	text

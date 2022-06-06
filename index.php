@@ -1,5 +1,6 @@
 <?php  
 include("includes/db.php");
+include("includes/check_access.php")
 ?>
 
 <!DOCTYPE html>

@@ -11,7 +11,7 @@
 <body>
 <?php 
 include("../includes/header.php");
-if($_SESSION['user']) {
+if(isset($_SESSION['user'])) {
 	header('Location: profile.php');
 	exit();
 }
