@@ -1,14 +1,14 @@
 <?php
 session_start();
 $config = array(
-			'title' => 'Gamers HUB',
+			'title' => 'Shopping List',
 			'db' => array(
 					'address' => '127.0.0.1',
 					'username' => 'root',
 					'password' => '',
-					'db_name' => 'gamers_hub_db',
+					'db_name' => 'shopping_list',
 				),
-			'css' => 'style_8.css',
+			'css' => 'style_9.css',
 			'bootstrap.css' => 'bootstrap.min.css',
 			'bootstrap.js' => 'bootstrap.bundle.min.js'
 		)
