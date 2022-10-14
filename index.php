@@ -45,9 +45,9 @@ include("includes/index_sql.php");
 							    $newDate = date("d-m", strtotime($orgDate));  
 							?>
 									<tr>
-										<td>
-											<input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
-									    <?php echo $list['text']?>
+										<td class="d-flex">
+											<input class="form-check-input me-2" id="form-check-input" type="checkbox" value="" aria-label="..."  />
+									    <p class="text" id="text"><?php echo $list['text']?></p> 
 									  </td>
 										<td>
 											<div class="text-muted"><?php echo $newDate?></div>
@@ -72,5 +72,6 @@ include("includes/index_sql.php");
   </div>
 </section>
 <script type="text/javascript" src="assets/js/<?php echo $config['bootstrap.js'] ?>"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>
