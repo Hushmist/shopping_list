@@ -1,11 +1,6 @@
 <?php  
 include("includes/db.php");
-
-$table = mysqli_query($connection, "
-	SELECT *
-	FROM `list`
-	ORDER BY `id` DESC"
-);
+include("includes/index_sql.php");
 ?>
 
 <!DOCTYPE html>
@@ -35,35 +30,40 @@ $table = mysqli_query($connection, "
               <button type="submit" class="btn btn-primary btn-lg ms-2">Add</button>
             </form>
 
-            <ul class="list-group mb-0">
-            	<li
-							  class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
-							    <p>item</p>
-							    <p>date</p>
-							    <p>delete</p>
-							</li>
-
+            <table class="table">
+            	<thead>
+            		<tr>
+            			<th style="width: 80%;">item</th>
+            			<th>date</th>
+            			<th style="width: 5%;"><i class="fa-solid fa-trash"></i></th>
+            		</tr>
+            	</thead>
+							<tbody>
             	<?php 
 								while($list = mysqli_fetch_assoc($table)) {
 							    $orgDate = $list['created_at'];  
 							    $newDate = date("d-m", strtotime($orgDate));  
 							?>
-									<li
-									  class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
-									  <div class="d-flex align-items-center">
-									    <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
+									<tr>
+										<td>
+											<input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
 									    <?php echo $list['text']?>
-									  </div>
-									    <div class="text-muted"><?php echo $newDate?></div>
-
-									  <a href="pages/delete_item.php?id=<?php echo $list['id'] ?>" data-mdb-toggle="tooltip" title="Remove item">
+									  </td>
+										<td>
+											<div class="text-muted"><?php echo $newDate?></div>
+										</td>
+										<td>
+											<a href="pages/delete_item.php?id=<?php echo $list['id'] ?>" data-mdb-toggle="tooltip" title="Remove item">
 									    <i class="fas fa-times text-primary"></i>
 									  </a>
-									</li>
+										</td>
+									</tr>
             	<?php 
 								}
             	?>
-              
+							</tbody>
+             </table>
+             <p class="text-muted">Last update: <?php echo $last_update; ?> </p>
           </div>
         </div>
 
