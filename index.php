@@ -36,8 +36,17 @@ $table = mysqli_query($connection, "
             </form>
 
             <ul class="list-group mb-0">
+            	<li
+							  class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
+							    <p>item</p>
+							    <p>date</p>
+							    <p>delete</p>
+							</li>
+
             	<?php 
 								while($list = mysqli_fetch_assoc($table)) {
+							    $orgDate = $list['created_at'];  
+							    $newDate = date("d-m", strtotime($orgDate));  
 							?>
 									<li
 									  class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">
@@ -45,6 +54,8 @@ $table = mysqli_query($connection, "
 									    <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
 									    <?php echo $list['text']?>
 									  </div>
+									    <div class="text-muted"><?php echo $newDate?></div>
+
 									  <a href="pages/delete_item.php?id=<?php echo $list['id'] ?>" data-mdb-toggle="tooltip" title="Remove item">
 									    <i class="fas fa-times text-primary"></i>
 									  </a>

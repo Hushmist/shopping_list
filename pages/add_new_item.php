@@ -8,8 +8,8 @@ if(empty($_GET['item'])) {
 }
 
 $table = mysqli_query($connection, "
-	INSERT INTO `list`(`text`) 
-	VALUES ('" . $_GET['item'] . "')"
+	INSERT INTO `list`(`text`, `created_at`) 
+	VALUES ('" . $_GET['item'] . "', '" . date('Y-m-d') . "')"
 );
 
 	header("Location: /index.php");
